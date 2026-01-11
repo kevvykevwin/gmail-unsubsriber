@@ -73,6 +73,24 @@ src/gmail_unsub/
 
 ## Development
 
+### Testing
+
+#### Run tests
+```bash
+pytest -v
+```
+
+#### TDD workflow
+1. Write/update spec in /specs/
+2. Generate tests: "apply test-generator-post-build skill to [spec]"
+3. Run pytest until green
+4. Run security-scan before commit
+
+#### Test conventions
+- All tests in /tests/
+- Naming: test_[feature].py
+- Use fixtures in conftest.py for shared setup
+
 ### Quality Gates
 
 Run before committing:
