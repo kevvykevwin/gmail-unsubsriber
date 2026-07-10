@@ -1,7 +1,8 @@
 """Tests for RFC 8058 one-click unsubscribe handler."""
 
-import pytest
 from unittest.mock import AsyncMock, patch
+
+import pytest
 
 from gmail_unsub.gmail.models import UnsubscribeMethod, UnsubscribeStatus
 from gmail_unsub.unsubscribe.one_click import OneClickHandler

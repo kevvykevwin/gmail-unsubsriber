@@ -4,7 +4,12 @@ from datetime import datetime
 
 import httpx
 
-from gmail_unsub.gmail.models import Subscription, UnsubscribeMethod, UnsubscribeResult, UnsubscribeStatus
+from gmail_unsub.gmail.models import (
+    Subscription,
+    UnsubscribeMethod,
+    UnsubscribeResult,
+    UnsubscribeStatus,
+)
 from gmail_unsub.utils.url_validator import is_safe_url
 
 

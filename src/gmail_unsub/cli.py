@@ -6,7 +6,7 @@ from pathlib import Path
 import questionary
 import typer
 from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
+from rich.progress import BarColumn, Progress, SpinnerColumn, TaskProgressColumn, TextColumn
 from rich.table import Table
 
 from gmail_unsub.auth.oauth import GmailAuthenticator
@@ -266,8 +266,10 @@ def history(
 
     # Stats
     stats = tracker.get_stats()
-    console.print(f"\n[bold]Statistics:[/bold]")
-    console.print(f"  Total: {stats['total']}, Success: {stats['success']}, Failed: {stats['failed']}")
+    console.print("\n[bold]Statistics:[/bold]")
+    console.print(
+        f"  Total: {stats['total']}, Success: {stats['success']}, Failed: {stats['failed']}"
+    )
     if stats.get("success_rate"):
         console.print(f"  Success rate: {stats['success_rate']}")
 
@@ -324,7 +326,11 @@ def clear(
 
     clear_actions = {
         "history": ("Clear all history?", lambda: history.clear(), "History cleared."),
-        "scan": ("Clear cached scan results?", lambda: state.clear_scan_results(), "Scan results cleared."),
+        "scan": (
+            "Clear cached scan results?",
+            lambda: state.clear_scan_results(),
+            "Scan results cleared.",
+        ),
         "all": (
             "Clear all data (history, scan results, state)?",
             lambda: (history.clear(), state.clear_scan_results(), state.clear()),
