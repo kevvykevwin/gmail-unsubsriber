@@ -5,7 +5,12 @@ from datetime import datetime
 from pathlib import Path
 
 from gmail_unsub.gmail.client import GmailClient
-from gmail_unsub.gmail.models import Subscription, UnsubscribeMethod, UnsubscribeResult, UnsubscribeStatus
+from gmail_unsub.gmail.models import (
+    Subscription,
+    UnsubscribeMethod,
+    UnsubscribeResult,
+    UnsubscribeStatus,
+)
 from gmail_unsub.storage.history import HistoryTracker
 from gmail_unsub.unsubscribe.browser import BrowserHandler
 from gmail_unsub.unsubscribe.mailto_handler import MailtoHandler

@@ -1,10 +1,15 @@
 """Mailto unsubscribe handler - sends email via Gmail API."""
 
 from datetime import datetime
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, unquote
 
 from gmail_unsub.gmail.client import GmailClient
-from gmail_unsub.gmail.models import Subscription, UnsubscribeMethod, UnsubscribeResult, UnsubscribeStatus
+from gmail_unsub.gmail.models import (
+    Subscription,
+    UnsubscribeMethod,
+    UnsubscribeResult,
+    UnsubscribeStatus,
+)
 
 
 class MailtoHandler:

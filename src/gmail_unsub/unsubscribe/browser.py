@@ -4,7 +4,12 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from gmail_unsub.gmail.models import Subscription, UnsubscribeMethod, UnsubscribeResult, UnsubscribeStatus
+from gmail_unsub.gmail.models import (
+    Subscription,
+    UnsubscribeMethod,
+    UnsubscribeResult,
+    UnsubscribeStatus,
+)
 from gmail_unsub.utils.url_validator import is_safe_url
 
 
@@ -52,7 +57,8 @@ class BrowserHandler:
         """
         Use Playwright to automate unsubscribe page interaction.
         """
-        from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
+        from playwright.async_api import TimeoutError as PlaywrightTimeout
+        from playwright.async_api import async_playwright
 
         url = subscription.list_unsubscribe_url
         if not url:

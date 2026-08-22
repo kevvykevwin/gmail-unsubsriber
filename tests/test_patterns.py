@@ -1,6 +1,5 @@
 """Tests for email pattern detection utilities."""
 
-import pytest
 
 from gmail_unsub.utils.patterns import (
     check_one_click_support,

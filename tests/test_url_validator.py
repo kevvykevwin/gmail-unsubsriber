@@ -1,6 +1,5 @@
 """Tests for URL validation to prevent SSRF attacks."""
 
-import pytest
 
 from gmail_unsub.utils.url_validator import is_safe_url
 

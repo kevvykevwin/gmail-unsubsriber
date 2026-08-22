@@ -41,7 +41,7 @@ class GmailAuthenticator:
             if creds and creds.expired and creds.refresh_token:
                 try:
                     creds.refresh(Request())
-                except Exception as e:
+                except Exception:
                     # Token refresh failed, need to re-authenticate
                     creds = self._run_oauth_flow()
             else:

@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -24,18 +25,18 @@ class Settings(BaseSettings):
     ]
 
     # Scanning Configuration
-    max_emails_to_scan: int = 1000
-    scan_days_back: int = 90
-    batch_size: int = 100
+    max_emails_to_scan: int = Field(default=1000, gt=0)
+    scan_days_back: int = Field(default=90, ge=0)
+    batch_size: int = Field(default=100, gt=0)
 
     # Rate Limiting
-    api_requests_per_second: float = 10.0
-    max_retries: int = 5
-    base_backoff_seconds: float = 1.0
+    api_requests_per_second: float = Field(default=10.0, gt=0)
+    max_retries: int = Field(default=5, ge=0)
+    base_backoff_seconds: float = Field(default=1.0, ge=0)
 
     # Browser Automation
     browser_headless: bool = True
-    browser_timeout_ms: int = 30000
+    browser_timeout_ms: int = Field(default=30000, gt=0)
 
     # Storage
     data_dir: Path = Path("data")
